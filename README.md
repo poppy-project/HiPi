@@ -16,12 +16,12 @@ After a reboot, you will be able to comunicate with the motors on:
 - /dev/ttySC1 for TTL2 and RS4852 Hipi output
 
 ### Detailed instructions
-Without the script, you can do it by hand:
+**Without** the install script, you can do it by hand:
 - you need to add the [sc16is752 overlay](https://github.com/poppy-project/HiPi/releases/download/0.1/sc16is752-spi.dtbo) in /boot/overlays
 - you need to add the overlay configuration `dtoverlay=sc16is752-spi,clkrate=32000000,irqpin=13` in /boot/config.txt
 - due to Hipi hardware, you need to open serial ports /dev/ttySC0 and /dev/ttySC1 (serial ports of the HiPi board) in RS485 mode (whatever TTL or RS485 Hipi output you want to use). It can be done one time at startup and the configuration will stay afterwards. 
 
-This snippet will open and close /dev/ttySC0 and /dev/ttySC1 ports in RS485 mode.
+This snippet will open and close /dev/ttySC0 and /dev/ttySC1 ports in RS485 mode:
 ```python
 import serial.rs485
 ser = serial.Serial('/dev/ttySC0', 1000000, timeout=0.5)
