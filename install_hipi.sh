@@ -30,13 +30,13 @@ install_pyserial(){
   # Pip is installed by default in Raspbian Jessie but not in Whezzy or Jessie lite
   pip=/usr/bin/pip
   if [ ! -f "$pip" ]; then
-    echo -e "Install pip"
+    echo -e "Install pip ..."
     apt-get update
     apt-get install --yes python-pip
   fi
 
   # Install pyserial
-  echo -e "Install pyserial"
+  echo -e "Install pyserial ..."
   "$pip" install pyserial --upgrade
 
 }
@@ -95,3 +95,6 @@ EOF
 setup_overlay
 install_pyserial
 hipi_startup_script
+
+echo -e "Installation done."
+echo -e "You need to reboot before using your HiPi."
