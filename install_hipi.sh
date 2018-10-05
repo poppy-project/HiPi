@@ -7,7 +7,7 @@ fi
 
 setup_overlay(){
   # Download sc16is752 overlay in Raspberry Pi overlays folder
-  wget --quiet https://github.com/show0k/HiPi/releases/download/0.1/sc16is752-spi.dtbo -O /boot/overlays/sc16is752-spi.dtbo
+  wget --quiet https://github.com/poppy-project/HiPi/releases/download/0.1/sc16is752-spi.dtbo -O /boot/overlays/sc16is752-spi.dtbo
 
   # sc16is752 overlay activation and configuration
   sc16is752_overlay="dtoverlay=sc16is752-spi,clkrate=32000000,irqpin=13"
